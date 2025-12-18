@@ -16,6 +16,15 @@ A Chrome Extension that seamlessly creates Linear issues from FreeScout support 
 - **Context Menu Integration**: Right-click to create issues from anywhere on the page
 - **Configurable Defaults**: Set default team, project, and labels for quick issue creation
 
+## Screenshot
+
+#### Issue Creation
+<img width="3360" height="1876" alt="CleanShot 2025-12-18 at 08 22 39@2x" src="https://github.com/user-attachments/assets/2bcc0500-e432-484f-abe6-0d4d7cf953a9" />
+
+#### Linear Issue
+<img width="3360" height="2100" alt="CleanShot 2025-12-18 at 08 24 59@2x" src="https://github.com/user-attachments/assets/a3b83243-316c-4d0b-8e2c-4390cc37f83b" />
+
+
 ## Installation
 
 ### From Source (Developer Mode)
