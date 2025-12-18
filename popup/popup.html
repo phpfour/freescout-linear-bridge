@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreeScout → Linear</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="popup-logo">
+        <svg width="24" height="24" viewBox="0 0 100 100" fill="#5E6AD2">
+          <path d="M1.22541 61.5228c-.2225-.9485.90748-1.5459 1.59638-.857L39.3342 97.1782c.6889.6889.0915 1.8189-.857 1.5765-36.9824-10.0233-41.1973-13.0192-37.2518-37.2319ZM74.8989 83.5107c-4.0117 4.0117-10.6227 3.7124-13.5794.3476L8.34174 26.9553C4.97686 23.5904 4.67755 16.9795 8.68928 12.9677l2.22168-2.22168c4.0117-4.01171 10.6227-3.71249 13.5794-.34762L87.9898 69.7093c3.3649 3.3565 3.6642 9.9675-.3475 13.5792l-2.2222 2.2222c-.0001 0-.0001 0 0 0ZM41.0455 1.81989c7.6713-1.16688 14.9916 1.61561 19.8214 6.44541l.0001-.00001 4.8393 4.83932L50.1539 28.6569 28.6569 50.1539 13.1044 34.6014l4.8393-4.8393c4.8298-4.8298 11.5834-7.61225 19.2548-6.44536l1.8778.28403L41.0455 1.81989Z"/>
+        </svg>
+        <span>FreeScout → Linear</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="popup-main">
+      <!-- Status Section -->
+      <section id="status-section" class="popup-section">
+        <div id="connection-status" class="status-indicator">
+          <span class="status-dot status-unknown"></span>
+          <span class="status-text">Checking connection...</span>
+        </div>
+      </section>
+
+      <!-- Quick Actions -->
+      <section class="popup-section">
+        <h3 class="section-title">Quick Actions</h3>
+        
+        <button id="create-issue-btn" class="action-btn primary-btn" disabled>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Create Linear Issue
+        </button>
+        
+        <p class="action-hint" id="action-hint">
+          Navigate to a FreeScout ticket to create an issue
+        </p>
+      </section>
+
+      <!-- Recent Activity -->
+      <section class="popup-section" id="recent-section" style="display: none;">
+        <h3 class="section-title">Recently Created</h3>
+        <div id="recent-issues" class="recent-issues-list">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <button id="settings-btn" class="footer-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+        Settings
+      </button>
+      <a href="https://linear.app" target="_blank" class="footer-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+        Open Linear
+      </a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

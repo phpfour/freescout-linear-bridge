@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreeScout to Linear - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <!-- Header -->
+    <header class="options-header">
+      <div class="header-content">
+        <div class="header-logo">
+          <svg width="32" height="32" viewBox="0 0 100 100" fill="#5E6AD2">
+            <path d="M1.22541 61.5228c-.2225-.9485.90748-1.5459 1.59638-.857L39.3342 97.1782c.6889.6889.0915 1.8189-.857 1.5765-36.9824-10.0233-41.1973-13.0192-37.2518-37.2319ZM74.8989 83.5107c-4.0117 4.0117-10.6227 3.7124-13.5794.3476L8.34174 26.9553C4.97686 23.5904 4.67755 16.9795 8.68928 12.9677l2.22168-2.22168c4.0117-4.01171 10.6227-3.71249 13.5794-.34762L87.9898 69.7093c3.3649 3.3565 3.6642 9.9675-.3475 13.5792l-2.2222 2.2222c-.0001 0-.0001 0 0 0ZM41.0455 1.81989c7.6713-1.16688 14.9916 1.61561 19.8214 6.44541l.0001-.00001 4.8393 4.83932L50.1539 28.6569 28.6569 50.1539 13.1044 34.6014l4.8393-4.8393c4.8298-4.8298 11.5834-7.61225 19.2548-6.44536l1.8778.28403L41.0455 1.81989Z"/>
+          </svg>
+          <div class="header-text">
+            <h1>FreeScout → Linear</h1>
+            <p>Extension Settings</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="options-main">
+      <!-- Status Banner -->
+      <div id="status-banner" class="status-banner" style="display: none;">
+        <span class="status-icon"></span>
+        <span class="status-message"></span>
+      </div>
+
+      <!-- Linear API Section -->
+      <section class="options-section">
+        <div class="section-header">
+          <h2>
+            <svg width="20" height="20" viewBox="0 0 100 100" fill="#5E6AD2">
+              <path d="M1.22541 61.5228c-.2225-.9485.90748-1.5459 1.59638-.857L39.3342 97.1782c.6889.6889.0915 1.8189-.857 1.5765-36.9824-10.0233-41.1973-13.0192-37.2518-37.2319ZM74.8989 83.5107c-4.0117 4.0117-10.6227 3.7124-13.5794.3476L8.34174 26.9553C4.97686 23.5904 4.67755 16.9795 8.68928 12.9677l2.22168-2.22168c4.0117-4.01171 10.6227-3.71249 13.5794-.34762L87.9898 69.7093c3.3649 3.3565 3.6642 9.9675-.3475 13.5792l-2.2222 2.2222c-.0001 0-.0001 0 0 0ZM41.0455 1.81989c7.6713-1.16688 14.9916 1.61561 19.8214 6.44541l.0001-.00001 4.8393 4.83932L50.1539 28.6569 28.6569 50.1539 13.1044 34.6014l4.8393-4.8393c4.8298-4.8298 11.5834-7.61225 19.2548-6.44536l1.8778.28403L41.0455 1.81989Z"/>
+            </svg>
+            Linear API Configuration
+          </h2>
+          <p class="section-description">
+            Enter your Linear API key to enable issue creation. 
+            <a href="https://linear.app/settings/api" target="_blank">Get your API key from Linear →</a>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="linear-api-key">API Key</label>
+          <div class="input-with-action">
+            <input 
+              type="password" 
+              id="linear-api-key" 
+              placeholder="lin_api_xxxxxxxxxxxx"
+              autocomplete="off"
+            >
+            <button type="button" id="toggle-api-key" class="input-action-btn" title="Show/Hide">
+              <svg id="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+          <small class="form-hint">Your API key is stored securely in Chrome's sync storage</small>
+        </div>
+
+        <div class="form-group">
+          <button type="button" id="test-connection" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            Test Connection
+          </button>
+          <span id="connection-result" class="connection-result"></span>
+        </div>
+      </section>
+
+      <!-- Default Settings Section -->
+      <section class="options-section">
+        <div class="section-header">
+          <h2>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5E6AD2" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            Default Settings
+          </h2>
+          <p class="section-description">
+            Configure default values for new Linear issues. These can be overridden when creating each issue.
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="default-team">Default Team</label>
+          <select id="default-team">
+            <option value="">Select a team (connect first)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="default-project">Default Project</label>
+          <select id="default-project">
+            <option value="">None</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Default Labels</label>
+          <div id="labels-container" class="labels-container">
+            <span class="labels-placeholder">Connect to Linear to load labels</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FreeScout Settings Section -->
+      <section class="options-section">
+        <div class="section-header">
+          <h2>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5E6AD2" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            FreeScout Configuration
+          </h2>
+          <p class="section-description">
+            Optional settings for FreeScout integration.
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="freescout-domain">FreeScout Domain (Optional)</label>
+          <input 
+            type="text" 
+            id="freescout-domain" 
+            placeholder="support.yourdomain.com"
+          >
+          <small class="form-hint">If specified, the extension will only activate on this domain</small>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="auto-detect-domain" checked>
+            <span class="checkbox-text">Auto-detect FreeScout pages</span>
+          </label>
+          <small class="form-hint">Automatically detect FreeScout pages based on DOM structure</small>
+        </div>
+      </section>
+
+      <!-- Save Button -->
+      <div class="options-actions">
+        <button type="button" id="save-settings" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+            <polyline points="7 3 7 8 15 8"></polyline>
+          </svg>
+          Save Settings
+        </button>
+        <button type="button" id="reset-settings" class="btn btn-text">
+          Reset to Defaults
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="options-footer">
+      <p>FreeScout to Linear Bridge v1.0.0</p>
+      <p>
+        <a href="https://linear.app/docs/api" target="_blank">Linear API Docs</a>
+        •
+        <a href="https://freescout.net/docs/" target="_blank">FreeScout Docs</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

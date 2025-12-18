@@ -1,0 +1,426 @@
+/**
+ * FreeScout to Linear Bridge - Content Script Styles
+ */
+
+/* ============================================================================
+   BUTTON STYLES
+   ============================================================================ */
+
+.freescout-linear-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5E6AD2;
+  background: linear-gradient(135deg, #f8f9ff 0%, #eef0ff 100%);
+  border: 1px solid #d4d7f2;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.freescout-linear-button:hover {
+  background: linear-gradient(135deg, #eef0ff 0%, #e4e7ff 100%);
+  border-color: #b8bce8;
+  box-shadow: 0 2px 8px rgba(94, 106, 210, 0.15);
+  transform: translateY(-1px);
+}
+
+.freescout-linear-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.freescout-linear-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Floating Button */
+.freescout-linear-floating-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+}
+
+.freescout-linear-floating-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5E6AD2 0%, #4C51BF 100%);
+  border: none;
+  box-shadow: 0 4px 16px rgba(94, 106, 210, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.freescout-linear-floating-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(94, 106, 210, 0.5);
+}
+
+.freescout-linear-floating-btn:active {
+  transform: scale(1.05);
+}
+
+/* ============================================================================
+   MODAL STYLES
+   ============================================================================ */
+
+.freescout-linear-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fl-fadeIn 0.2s ease;
+}
+
+@keyframes fl-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.freescout-linear-modal {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fl-slideUp 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@keyframes fl-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.freescout-linear-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.freescout-linear-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+}
+
+.freescout-linear-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.freescout-linear-modal-close:hover {
+  color: #4b5563;
+  background: #f3f4f6;
+}
+
+.freescout-linear-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.freescout-linear-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+/* ============================================================================
+   FORM STYLES
+   ============================================================================ */
+
+.freescout-linear-form-group {
+  margin-bottom: 20px;
+}
+
+.freescout-linear-form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.freescout-linear-form-group input[type="text"],
+.freescout-linear-form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1f2937;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.freescout-linear-form-group input[type="text"]:focus,
+.freescout-linear-form-group select:focus {
+  outline: none;
+  border-color: #5E6AD2;
+  box-shadow: 0 0 0 3px rgba(94, 106, 210, 0.1);
+}
+
+.freescout-linear-form-group input[type="text"]::placeholder {
+  color: #9ca3af;
+}
+
+/* Labels Container */
+.freescout-linear-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  min-height: 44px;
+}
+
+.freescout-linear-labels-placeholder {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.freescout-linear-label-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.freescout-linear-label-item:hover {
+  border-color: #d1d5db;
+  background: #f3f4f6;
+}
+
+.freescout-linear-label-item input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.freescout-linear-label-item input[type="checkbox"]:checked + .freescout-linear-label-color + .freescout-linear-label-name {
+  font-weight: 500;
+}
+
+.freescout-linear-label-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.freescout-linear-label-name {
+  color: #4b5563;
+}
+
+/* Ticket Preview */
+.freescout-linear-ticket-preview {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed #e5e7eb;
+}
+
+.freescout-linear-ticket-preview label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.freescout-linear-preview-content {
+  padding: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.freescout-linear-preview-content strong {
+  color: #374151;
+}
+
+/* ============================================================================
+   BUTTON STYLES
+   ============================================================================ */
+
+.freescout-linear-btn-primary {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background: linear-gradient(135deg, #5E6AD2 0%, #4C51BF 100%);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.freescout-linear-btn-primary:hover {
+  background: linear-gradient(135deg, #4C51BF 0%, #434190 100%);
+  box-shadow: 0 2px 8px rgba(94, 106, 210, 0.3);
+}
+
+.freescout-linear-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.freescout-linear-btn-secondary {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b5563;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.freescout-linear-btn-secondary:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* ============================================================================
+   SPINNER
+   ============================================================================ */
+
+.freescout-linear-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: fl-spin 0.8s linear infinite;
+}
+
+.freescout-linear-button .freescout-linear-spinner {
+  border-color: rgba(94, 106, 210, 0.3);
+  border-top-color: #5E6AD2;
+}
+
+@keyframes fl-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================================
+   TOAST NOTIFICATIONS
+   ============================================================================ */
+
+.freescout-linear-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 99999999;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  max-width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.freescout-linear-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.freescout-linear-toast strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.freescout-linear-toast p {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.freescout-linear-toast-success {
+  border-left: 4px solid #10b981;
+}
+
+.freescout-linear-toast-success strong {
+  color: #059669;
+}
+
+.freescout-linear-toast-error {
+  border-left: 4px solid #ef4444;
+}
+
+.freescout-linear-toast-error strong {
+  color: #dc2626;
+}
+
+.freescout-linear-toast-info {
+  border-left: 4px solid #5E6AD2;
+}
+
+.freescout-linear-toast-info strong {
+  color: #5E6AD2;
+}
